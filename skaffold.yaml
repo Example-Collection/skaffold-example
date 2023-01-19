@@ -1,0 +1,17 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: skaffold-poc
+build:
+  artifacts:
+  - image: robbyra98/skaffold-local-demo
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  helm:
+    releases:
+    - name: my-chart
+      chartPath: helm
+      valuesFiles:
+      - helm/internal-values.yaml
+      version: 0.0.0
