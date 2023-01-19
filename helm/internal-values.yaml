@@ -1,0 +1,21 @@
+metadata:
+  namespace: skaffold-poc
+  labels:
+    app: skaffold-poc
+deployment:
+  replicaCount: 2
+  namespace: skaffold-poc
+  name: skaffold-poc-deployment
+container:
+  name: skaffold-poc-container
+  image:
+    name: robbyra98/skaffold-local-demo
+    tag: amd64
+    pullPolicy: IfNotPresent
+  port: 8080
+  protocol: TCP
+service:
+  name: skaffold-poc-service
+  type: NodePort
+  targetPort: 8080
+
