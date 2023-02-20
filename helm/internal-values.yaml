@@ -1,21 +1,21 @@
 metadata:
-  namespace: skaffold-poc
+  namespace: skaffold-example
   labels:
-    app: skaffold-poc
+    app: skaffold-example
 deployment:
-  replicaCount: 2
-  namespace: skaffold-poc
-  name: skaffold-poc-deployment
+  replicaCount: 1
+  namespace: skaffold-example
+  name: skaffold-example
 container:
-  name: skaffold-poc-container
+  name: skaffold-example
   image:
-    name: robbyra98/skaffold-local-demo
-    tag: amd64
+    name: robbyra98/argo-image-updater-poc
+    tag: 0.0.0
     pullPolicy: IfNotPresent
   port: 8080
   protocol: TCP
 service:
-  name: skaffold-poc-service
+  name: skaffold-example
   type: NodePort
   targetPort: 8080
 
